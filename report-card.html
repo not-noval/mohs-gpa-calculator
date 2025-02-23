@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Report Card</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="report-card-container">
+    <div class="report-card-header">
+      <h1>Report Card</h1>
+      <p id="generation-date"></p>
+    </div>
+
+    <!-- Return to Calculator (hidden in print) -->
+    <div class="buttons-row no-print" style="justify-content: center;">
+      <button id="return-calculator-btn">Return to Calculator</button>
+    </div>
+
+    <table id="report-card-table">
+      <thead>
+        <tr>
+          <th>Course Name</th>
+          <th>Letter Grade</th>
+          <th>Numeric Grade</th>
+          <th>Grade Points Weight</th>
+        </tr>
+      </thead>
+      <tbody id="report-card-body">
+        <!-- Populated by reportCard.js -->
+      </tbody>
+    </table>
+
+    <div id="calc-breakdown" class="calculation-breakdown"></div>
+    <p id="final-gpa" class="final-gpa"></p>
+
+    <p class="report-footer">Created Using MOHS GPA Calculator - Kian Ameri</p>
+
+    <!-- Print/Save PDF Button (hidden in PDF) -->
+    <button id="print-btn" class="no-print">Print / Save as PDF</button>
+  </div>
+
+  <footer>
+    <p style="font-size: 0.8rem;">Developed by Kian Ameri EST. 2025</p>
+    <p style="font-size: 0.8rem;">
+      This is a personal project and maintains no affiliation with Mount Olive High School or any related entities.
+    </p>
+  </footer>
+
+  <script src="reportCard.js"></script>
+</body>
+</html>

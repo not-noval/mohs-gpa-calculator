@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MOHS GPA Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <!-- Top-right Settings Button -->
+    <button id="settings-btn" class="settings-button" title="View Settings and Information">
+      Settings & Information
+    </button>
+
+    <h1>MOHS GPA Calculator</h1>
+    <p class="site-description">
+      A basic GPA calculator tailored to the Mount Olive High School grading and GPA system,
+      input the fields below to calculate your Grade Point Average.
+    </p>
+  </header>
+
+  <div class="calculator-container">
+    <!-- Error message container -->
+    <div id="error-message" class="error-message"></div>
+
+    <table>
+      <thead>
+        <tr>
+          <th 
+            class="tooltip" 
+            data-tooltip="Optional input, recommended if you plan to generate a report card once you have calculated your GPA (ex: AP Biology)"
+          >
+            Course Name
+          </th>
+          <th
+            class="tooltip"
+            data-tooltip="Input the numeric grade of the course (ex: 98)"
+          >
+            Numeric Grade
+          </th>
+          <th
+            class="tooltip"
+            data-tooltip="Select the level of the course"
+          >
+            Course Level
+          </th>
+          <th>Remove</th>
+        </tr>
+      </thead>
+      <tbody id="course-table-body">
+        <!-- 5 default rows -->
+        <tr>
+          <td><input type="text" class="course-name" placeholder="Enter Course Name" /></td>
+          <td><input type="number" class="numeric-grade" min="0" max="100" /></td>
+          <td>
+            <select class="course-level">
+              <option value="choose">Choose Level</option>
+              <option value="AP">AP</option>
+              <option value="Honors">Honors</option>
+              <option value="CP">CP</option>
+            </select>
+          </td>
+          <td><button class="remove-course-btn">Remove</button></td>
+        </tr>
+        <tr>
+          <td><input type="text" class="course-name" placeholder="Enter Course Name" /></td>
+          <td><input type="number" class="numeric-grade" min="0" max="100" /></td>
+          <td>
+            <select class="course-level">
+              <option value="choose">Choose Level</option>
+              <option value="AP">AP</option>
+              <option value="Honors">Honors</option>
+              <option value="CP">CP</option>
+            </select>
+          </td>
+          <td><button class="remove-course-btn">Remove</button></td>
+        </tr>
+        <tr>
+          <td><input type="text" class="course-name" placeholder="Enter Course Name" /></td>
+          <td><input type="number" class="numeric-grade" min="0" max="100" /></td>
+          <td>
+            <select class="course-level">
+              <option value="choose">Choose Level</option>
+              <option value="AP">AP</option>
+              <option value="Honors">Honors</option>
+              <option value="CP">CP</option>
+            </select>
+          </td>
+          <td><button class="remove-course-btn">Remove</button></td>
+        </tr>
+        <tr>
+          <td><input type="text" class="course-name" placeholder="Enter Course Name" /></td>
+          <td><input type="number" class="numeric-grade" min="0" max="100" /></td>
+          <td>
+            <select class="course-level">
+              <option value="choose">Choose Level</option>
+              <option value="AP">AP</option>
+              <option value="Honors">Honors</option>
+              <option value="CP">CP</option>
+            </select>
+          </td>
+          <td><button class="remove-course-btn">Remove</button></td>
+        </tr>
+        <tr>
+          <td><input type="text" class="course-name" placeholder="Enter Course Name" /></td>
+          <td><input type="number" class="numeric-grade" min="0" max="100" /></td>
+          <td>
+            <select class="course-level">
+              <option value="choose">Choose Level</option>
+              <option value="AP">AP</option>
+              <option value="Honors">Honors</option>
+              <option value="CP">CP</option>
+            </select>
+          </td>
+          <td><button class="remove-course-btn">Remove</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="buttons-row">
+      <button id="add-course-btn">Add Course</button>
+      <button id="calculate-btn">Calculate GPA</button>
+      <!-- Disabled by default; updated tooltip message -->
+      <button
+        id="generate-report-btn"
+        disabled
+        data-tooltip="You cannot generate a report card without a valid GPA, calculate a GPA and try again."
+      >
+        Generate Report Card
+      </button>
+    </div>
+
+    <div class="result-container">
+      <p>Your Weighted GPA is: <span id="gpa-result">0.00</span></p>
+    </div>
+  </div>
+
+  <!-- Settings & Information Modal -->
+  <div id="settings-modal" class="modal">
+    <div class="modal-content settings-info-modal">
+      <h2>Settings & Information</h2>
+
+      <!-- A simpler, nicer layout -->
+      <div class="settings-info-main">
+        <div class="settings-column">
+          <h3>Settings</h3>
+          <div class="setting-item">
+            <label for="dark-mode-toggle">Dark Mode</label>
+            <label class="switch">
+              <input type="checkbox" id="dark-mode-toggle" />
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <div class="setting-item">
+            <label for="mohs-theme-toggle">MOHS Color Scheme</label>
+            <label class="switch">
+              <input type="checkbox" id="mohs-theme-toggle" />
+              <span class="slider round"></span>
+            </label>
+          </div>
+        </div>
+        <div class="info-column">
+          <h3>Information</h3>
+          <div class="info-resources">
+            <h4>Resources</h4>
+            <!-- Centered links, no bullets -->
+            <div class="resource-links">
+              <a 
+                href="https://resources.finalsite.net/images/v1725988465/mtoliveboeorg/ho1utoseqg6w6fe7oxs4/MOHSStudentHandbook2024-2025-2.pdf"
+                target="_blank"
+              >
+                MOHS Student Handbook
+              </a>
+              <a 
+                href="https://mohs.motsd.org/"
+                target="_blank"
+              >
+                MOHS Website
+              </a>
+            </div>
+          </div>
+          <div class="info-about">
+            <h4>About This Website</h4>
+            <p>Developed by Kian Ameri EST. 2025</p>
+            <p>This is a personal project and maintains no affiliation with Mount Olive High School or any related entities.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="buttons-row">
+        <button id="close-settings-btn" class="close-settings-btn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- No Course Name Modal -->
+  <div id="no-name-modal" class="modal">
+    <div class="modal-content">
+      <h2>No Course Name</h2>
+      <p id="no-name-text">You have not entered course names for X courses.</p>
+      <div class="buttons-row">
+        <button id="continue-without-names-btn" class="close-settings-btn">
+          Continue Without Names
+        </button>
+        <button id="return-to-names-btn" class="close-settings-btn">
+          Return to Input Course Names
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p style="font-size: 0.8rem;">Developed by Kian Ameri EST. 2025</p>
+    <p style="font-size: 0.8rem;">
+      This is a personal project and maintains no affiliation with Mount Olive High School or any related entities.
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
