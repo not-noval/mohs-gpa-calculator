@@ -1,385 +1,382 @@
 /* Basic resets */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Futura, Verdana, sans-serif;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
-  
-  /* Dark Mode override */
-  body.dark-mode {
-    background-color: #121212;
-    color: #ffffff;
-  }
-  body.dark-mode input[type="text"],
-  body.dark-mode input[type="number"],
-  body.dark-mode select {
-    background-color: #2a2a2a;
-    color: #fff;
-    border: 1px solid #666;
-  }
-  body.dark-mode table th,
-  body.dark-mode table td {
-    border-color: #666;
-  }
-  body.dark-mode table th {
-    background-color: #333;
-  }
-  body.dark-mode .calculator-container,
-  body.dark-mode .modal-content,
-  body.dark-mode .report-card-container {
-    background-color: #121212;
-  }
-  
-  /* MOHS Theme override */
-  body.mohs-theme h1 {
-    color: #c70c0c;
-  }
-  body.mohs-theme table th {
-    background-color: #c70c0c;
-    color: #fff;
-  }
-  body.mohs-theme #add-course-btn,
-  body.mohs-theme #calculate-btn,
-  body.mohs-theme .remove-course-btn,
-  body.mohs-theme .close-settings-btn,
-  body.mohs-theme #settings-btn,
-  body.mohs-theme #generate-report-btn,
-  body.mohs-theme #print-btn,
-  body.mohs-theme #return-calculator-btn {
-    background-color: #c4b454;
-    color: #000;
-  }
-  body.mohs-theme #add-course-btn:hover,
-  body.mohs-theme #calculate-btn:hover,
-  body.mohs-theme .remove-course-btn:hover,
-  body.mohs-theme .close-settings-btn:hover,
-  body.mohs-theme #settings-btn:hover,
-  body.mohs-theme #generate-report-btn:hover,
-  body.mohs-theme #print-btn:hover,
-  body.mohs-theme #return-calculator-btn:hover {
-    background-color: #9f8d45;
-  }
-  
-  /* Heading & description */
-  header {
-    width: 100%;
-    text-align: center;
-  }
-  h1 {
-    font-size: 2rem;
-    margin: 2rem 0 1rem 0;
-  }
-  .site-description {
-    font-size: 1rem;
-    max-width: 600px;
-    margin: 0 auto 2rem auto;
-    line-height: 1.5;
-  }
-  
-  /* Calculator container */
-  .calculator-container {
-    width: 80%;
-    max-width: 800px;
-    margin: 0 auto 4rem auto;
-  }
-  
-  /* Footer always at bottom, smaller now */
-  footer {
-    text-align: center;
-    margin-top: auto;
-    background-color: #f5f5f5;
-    padding: 0.5rem; /* smaller */
-    border-top: 1px solid #ccc;
-  }
-  footer p {
-    margin: 0.2rem 0;
-    font-size: 0.8rem; /* smaller text */
-  }
-  body.dark-mode footer {
-    background-color: #1f1f1f;
-    border-top: 1px solid #444;
-  }
-  
-  /* Error message styling */
-  #error-message {
-    color: #cc0000;
-    margin-bottom: 1rem;
-    text-align: center;
-    font-weight: bold;
-  }
-  
-  /* Table styles */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 1rem;
-  }
-  table th,
-  table td {
-    border: 1px solid #aaa;
-    padding: 0.75rem;
-    text-align: center;
-  }
-  
-  /* Tooltips for .tooltip elements */
-  .tooltip {
-    position: relative;
-    cursor: help;
-  }
-  .tooltip:hover::after {
-    content: attr(data-tooltip);
-    position: absolute;
-    background: #333;
-    color: #fff;
-    padding: 0.5rem;
-    border-radius: 4px;
-    width: 220px;
-    top: -10px;
-    left: 50%;
-    transform: translate(-50%, -100%);
-    text-align: center;
-    font-size: 0.9rem;
-    pointer-events: none;
-    z-index: 9999;
-  }
-  .tooltip:hover::before {
-    content: "";
-    position: absolute;
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    border-top: 6px solid #333;
-    bottom: -5px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 9999;
-  }
-  
-  /* Input and select styling */
-  input[type="text"],
-  input[type="number"],
-  select {
-    width: 90%;
-    padding: 0.3rem;
-    box-sizing: border-box;
-    text-align: center;
-  }
-  
-  /* Buttons row + styling */
-  .buttons-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center;
-    margin-bottom: 1rem;
-  }
-  #add-course-btn,
-  #calculate-btn,
-  .remove-course-btn,
-  .close-settings-btn,
-  #generate-report-btn,
-  #print-btn,
-  #return-calculator-btn {
-    display: inline-block;
-    background-color: #005fa3;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    padding: 0.75rem 1.5rem;
-    cursor: pointer;
-    font-size: 0.95rem;
-  }
-  #add-course-btn:hover,
-  #calculate-btn:hover,
-  .remove-course-btn:hover,
-  .close-settings-btn:hover,
-  #generate-report-btn:hover,
-  #print-btn:hover,
-  #return-calculator-btn:hover {
-    background-color: #003e6b;
-  }
-  #generate-report-btn[disabled] {
-    opacity: 0.6;
-    cursor: not-allowed;
-  }
-  
-  /* Settings & Info button (top-right) */
-  .settings-button {
-    position: fixed;
-    top: 1rem;
-    right: 1rem;
-    background-color: #005fa3;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    z-index: 10100;
-  }
-  .settings-button:hover {
-    background-color: #003e6b;
-  }
-  
-  /* GPA result styling */
-  .result-container {
-    text-align: center;
-    font-size: 1.2rem;
-    margin-top: 1.5rem;
-  }
-  #gpa-result {
-    font-weight: bold;
-  }
-  
-  /* Modals */
-  .modal {
-    display: none;
-    position: fixed;
-    z-index: 10000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-  }
-  .modal-content {
-    background-color: #ffffff;
-    margin: 10% auto;
-    padding: 2rem;
-    border-radius: 8px;
-    width: 500px;
-    max-width: 95%;
-    position: relative;
-    text-align: center;
-  }
-  body.dark-mode .modal-content {
-    background-color: #222;
-    color: #fff;
-  }
-  
-  /* Settings & Info Modal: simpler layout */
-  .settings-info-modal { }
-  .settings-info-main {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    margin: 1rem 0;
-    justify-content: space-between;
-  }
-  .settings-column,
-  .info-column {
-    flex: 1 1 280px;
-    min-width: 280px;
-    background-color: #f9f9f9;
-    border-radius: 6px;
-    padding: 1rem;
-    box-sizing: border-box;
-  }
-  body.dark-mode .settings-column,
-  body.dark-mode .info-column {
-    background-color: #333;
-  }
-  .settings-column h3,
-  .info-column h3 {
-    margin-top: 0;
-  }
-  
-  /* Resource links, no bullets, centered */
-  .resource-links {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
-  }
-  .resource-links a {
-    text-decoration: underline;
-    color: #005fa3;
-  }
-  .resource-links a:hover {
-    color: #003e6b;
-  }
-  
-  /* No Print class => hidden in print/PDF */
+  margin: 0;
+  padding: 0;
+  font-family: Futura, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Dark Mode override */
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+body.dark-mode input[type="text"],
+body.dark-mode input[type="number"],
+body.dark-mode select {
+  background-color: #2a2a2a;
+  color: #fff;
+  border: 1px solid #666;
+}
+body.dark-mode table th,
+body.dark-mode table td {
+  border-color: #666;
+}
+body.dark-mode table th {
+  background-color: #333;
+}
+body.dark-mode .calculator-container,
+body.dark-mode .modal-content,
+body.dark-mode .report-card-container {
+  background-color: #121212;
+}
+
+/* MOHS Theme override */
+body.mohs-theme h1 {
+  color: #c70c0c;
+}
+body.mohs-theme table th {
+  background-color: #c70c0c;
+  color: #fff;
+}
+body.mohs-theme #add-course-btn,
+body.mohs-theme #calculate-btn,
+body.mohs-theme .remove-course-btn,
+body.mohs-theme .close-settings-btn,
+body.mohs-theme #settings-btn,
+body.mohs-theme #generate-report-btn,
+body.mohs-theme #print-btn,
+body.mohs-theme #return-calculator-btn {
+  background-color: #c4b454;
+  color: #000;
+}
+body.mohs-theme #add-course-btn:hover,
+body.mohs-theme #calculate-btn:hover,
+body.mohs-theme .remove-course-btn:hover,
+body.mohs-theme .close-settings-btn:hover,
+body.mohs-theme #settings-btn:hover,
+body.mohs-theme #generate-report-btn:hover,
+body.mohs-theme #print-btn:hover,
+body.mohs-theme #return-calculator-btn:hover {
+  background-color: #9f8d45;
+}
+
+/* Heading & description */
+header {
+  width: 100%;
+  text-align: center;
+}
+h1 {
+  font-size: 2rem;
+  margin: 2rem 0 1rem 0;
+}
+.site-description {
+  font-size: 1rem;
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+  line-height: 1.5;
+}
+
+/* Calculator container */
+.calculator-container {
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto 4rem auto;
+}
+
+/* Footer smaller now */
+footer {
+  text-align: center;
+  margin-top: auto;
+  background-color: #f5f5f5;
+  padding: 0.5rem; /* smaller than default */
+  border-top: 1px solid #ccc;
+}
+footer p {
+  margin: 0.2rem 0;
+  font-size: 0.8rem; /* smaller text */
+}
+body.dark-mode footer {
+  background-color: #1f1f1f;
+  border-top: 1px solid #444;
+}
+
+/* Error message styling */
+#error-message {
+  color: #cc0000;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Table styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+table th,
+table td {
+  border: 1px solid #aaa;
+  padding: 0.75rem;
+  text-align: center;
+}
+
+/* Tooltips for .tooltip elements */
+.tooltip {
+  position: relative;
+  cursor: help;
+}
+.tooltip:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  background: #333;
+  color: #fff;
+  padding: 0.5rem;
+  border-radius: 4px;
+  width: 220px;
+  top: -10px;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  text-align: center;
+  font-size: 0.9rem;
+  pointer-events: none;
+  z-index: 9999;
+}
+.tooltip:hover::before {
+  content: "";
+  position: absolute;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #333;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+}
+
+/* Input and select styling */
+input[type="text"],
+input[type="number"],
+select {
+  width: 90%;
+  padding: 0.3rem;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* Buttons row + styling */
+.buttons-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+#add-course-btn,
+#calculate-btn,
+.remove-course-btn,
+.close-settings-btn,
+#generate-report-btn,
+#print-btn,
+#return-calculator-btn {
+  display: inline-block;
+  background-color: #005fa3;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+#add-course-btn:hover,
+#calculate-btn:hover,
+.remove-course-btn:hover,
+.close-settings-btn:hover,
+#generate-report-btn:hover,
+#print-btn:hover,
+#return-calculator-btn:hover {
+  background-color: #003e6b;
+}
+#generate-report-btn[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Settings & Info button (top-right) */
+.settings-button {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background-color: #005fa3;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  z-index: 10100;
+}
+.settings-button:hover {
+  background-color: #003e6b;
+}
+
+/* GPA result styling */
+.result-container {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+}
+#gpa-result {
+  font-weight: bold;
+}
+
+/* Modals */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.modal-content {
+  background-color: #ffffff;
+  margin: 10% auto;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 500px;
+  max-width: 95%;
+  position: relative;
+  text-align: center;
+}
+body.dark-mode .modal-content {
+  background-color: #222;
+  color: #fff;
+}
+
+/* Settings & Info Modal: simpler layout */
+.settings-info-modal { }
+.settings-info-main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 1rem 0;
+  justify-content: space-between;
+}
+.settings-column,
+.info-column {
+  flex: 1 1 280px;
+  min-width: 280px;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+body.dark-mode .settings-column,
+body.dark-mode .info-column {
+  background-color: #333;
+}
+.settings-column h3,
+.info-column h3 {
+  margin-top: 0;
+}
+.resource-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+.resource-links a {
+  text-decoration: underline;
+  color: #005fa3;
+}
+.resource-links a:hover {
+  color: #003e6b;
+}
+
+/* No Print class => hidden in print/PDF */
+.no-print {
+  display: inline-block;
+}
+@media print {
   .no-print {
-    display: inline-block;
+    display: none !important;
   }
-  @media print {
-    .no-print {
-      display: none !important;
-    }
-  }
-  
-  /* =================== Report Card Page =================== */
-  .report-card-container {
-    width: 80%;
-    max-width: 800px;
-    margin: 2rem auto;
-    text-align: center;
-    background-color: #fff;
-    padding: 1rem 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  }
-  body.dark-mode .report-card-container {
-    background-color: #121212;
-    box-shadow: none;
-  }
-  .report-card-header {
-    margin-bottom: 1rem;
-  }
-  .report-card-header h1 {
-    font-size: 1.6rem;
-    margin: 0;
-  }
-  #generation-date {
-    font-size: 0.9rem;
-    color: #666;
-    margin: 0.2rem 0;
-  }
-  #report-card-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 1rem 0;
-  }
-  #report-card-table th {
-    background-color: #f4f4f4;
-    color: #333;
-  }
-  #report-card-table th,
-  #report-card-table td {
-    border: 1px solid #aaa;
-    padding: 0.75rem;
-    text-align: center;
-  }
-  body.dark-mode #report-card-table th {
-    background-color: #333;
-    color: #fff;
-  }
-  .calculation-breakdown {
-    text-align: left;
-    margin: 1rem auto;
-    max-width: 600px;
-    background-color: #f4f4f4;
-    padding: 1rem;
-    border-radius: 4px;
-    display: inline-block;
-  }
-  body.dark-mode .calculation-breakdown {
-    background-color: #333;
-    color: #fff;
-  }
-  .calculation-breakdown h3 {
-    margin-top: 0;
-  }
-  .final-gpa {
-    font-weight: bold;
-    font-size: 1.2rem;
-  }
-  .report-footer {
-    margin-top: 1.5rem;
-    font-style: italic;
-    color: #555;
-  }
-  
+}
+
+/* =================== Report Card Page =================== */
+.report-card-container {
+  width: 80%;
+  max-width: 800px;
+  margin: 2rem auto;
+  text-align: center;
+  background-color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+body.dark-mode .report-card-container {
+  background-color: #121212;
+  box-shadow: none;
+}
+.report-card-header {
+  margin-bottom: 1rem;
+}
+.report-card-header h1 {
+  font-size: 1.6rem;
+  margin: 0;
+}
+#generation-date {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0.2rem 0;
+}
+#report-card-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+#report-card-table th {
+  background-color: #f4f4f4;
+  color: #333;
+}
+#report-card-table th,
+#report-card-table td {
+  border: 1px solid #aaa;
+  padding: 0.75rem;
+  text-align: center;
+}
+body.dark-mode #report-card-table th {
+  background-color: #333;
+  color: #fff;
+}
+.calculation-breakdown {
+  text-align: left;
+  margin: 1rem auto;
+  max-width: 600px;
+  background-color: #f4f4f4;
+  padding: 1rem;
+  border-radius: 4px;
+  display: inline-block;
+}
+body.dark-mode .calculation-breakdown {
+  background-color: #333;
+  color: #fff;
+}
+.calculation-breakdown h3 {
+  margin-top: 0;
+}
+.final-gpa {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.report-footer {
+  margin-top: 1.5rem;
+  font-style: italic;
+  color: #555;
+}
